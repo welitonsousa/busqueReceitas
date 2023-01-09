@@ -8,13 +8,11 @@ import 'package:get_storage/get_storage.dart';
 class ConnectBinding implements Bindings {
   @override
   void dependencies() {
-    const baseUrl = "https://14f6-168-205-242-62.ngrok.io";
+    const baseUrl = "https://busque-receitas.onrender.com";
     final user = GetStorage().read('user') as Map?;
     Map<String, dynamic> headers = {};
     if (user != null) {
-      headers = {
-        "Authorization": "Bearer ${user['token']}"
-      };
+      headers = {"Authorization": "Bearer ${user['token']}"};
     }
     Dio dio = Dio(BaseOptions(
       baseUrl: baseUrl,
